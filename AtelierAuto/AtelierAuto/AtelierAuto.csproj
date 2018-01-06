@@ -143,16 +143,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandAcceptareComanda.cs" />
     <Compile Include="Commands\CommandFacturare.cs" />
     <Compile Include="Commands\CommandPlasareComanda.cs" />
     <Compile Include="Commands\MagistralaCommandsEx.cs" />
     <Compile Include="Commands\MagistralaCommands.cs" />
     <Compile Include="Commands\ProcesatorCommand.cs" />
+    <Compile Include="Commands\ProcesatorAcceptareComanda.cs" />
     <Compile Include="Commands\ProcesatorCommandGeneric.cs" />
+    <Compile Include="Commands\ProcesatorFacturare.cs" />
     <Compile Include="Commands\ProcesatorPlasareComanda.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Evenimente\Eveniment.cs" />
     <Compile Include="Evenimente\MagistralaEvenimente.cs" />
+    <Compile Include="Evenimente\MagistralaEx.cs" />
     <Compile Include="Evenimente\ProcesatorEveniment.cs" />
     <Compile Include="Evenimente\TipEveniment.cs" />
     <Compile Include="Global.asax.cs">
@@ -175,6 +179,10 @@
     <Compile Include="Repository\WriteRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MecanicDatabase.mdf" />
+    <Content Include="App_Data\MecanicDatabase_log.ldf">
+      <DependentUpon>MecanicDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -212,9 +220,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

@@ -7,7 +7,7 @@ using AtelierAuto.Models;
 
 namespace AtelierAuto.Commands
 {
-    public class CommandFacturare
+    public class CommandFacturare :Command
     {
         public IDComanada IdComanda { get; set; }
         public Comanda Comnanda { get; set; }
