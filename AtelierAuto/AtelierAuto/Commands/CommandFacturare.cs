@@ -9,7 +9,7 @@ namespace AtelierAuto.Commands
 {
     public class CommandFacturare :Command
     {
-        public IDComanada IdComanda { get; set; }
+        public Guid IdComanda { get; set; }
         public Comanda Comnanda { get; set; }
     }
 }

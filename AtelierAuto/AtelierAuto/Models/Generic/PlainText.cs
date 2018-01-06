@@ -13,7 +13,7 @@ namespace AtelierAuto.Models.Generic
 
         public PlainText(string text)
         {
-            Contract.Requires<ArgumentNullException>(text != null, "text");
+            
 
             _text = text;
         }

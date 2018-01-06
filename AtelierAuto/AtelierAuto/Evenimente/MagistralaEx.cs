@@ -9,7 +9,9 @@ namespace AtelierAuto.Evenimente
     {
         public static void InregistreazaProcesatoareStandard(this MagistralaEvenimente magistrala)
         {
-
+            magistrala.InregistreazaProcesator(TipEveniment.PlasareComnada, new ProcesatorPlasareComanda());
+            magistrala.InregistreazaProcesator(TipEveniment.AcceptareComanda, new ProcesatorAcceptareComanda());
+            magistrala.InregistreazaProcesator(TipEveniment.Facturare, new ProcesatorFacturareComanda());
         }
     }
 }

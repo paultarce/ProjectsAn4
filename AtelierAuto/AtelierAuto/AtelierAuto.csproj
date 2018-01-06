@@ -154,10 +154,14 @@
     <Compile Include="Commands\ProcesatorFacturare.cs" />
     <Compile Include="Commands\ProcesatorPlasareComanda.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Evenimente\Eveniment.cs" />
     <Compile Include="Evenimente\MagistralaEvenimente.cs" />
     <Compile Include="Evenimente\MagistralaEx.cs" />
+    <Compile Include="Evenimente\ProcesatorAcceptareComanda.cs" />
     <Compile Include="Evenimente\ProcesatorEveniment.cs" />
+    <Compile Include="Evenimente\ProcesatorFacturareComanda.cs" />
+    <Compile Include="Evenimente\ProcesatorPlasareComanda.cs" />
     <Compile Include="Evenimente\TipEveniment.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -174,6 +178,7 @@
     <Compile Include="Models\Masina.cs" />
     <Compile Include="Models\Mecanic.cs" />
     <Compile Include="Models\StareComanda.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ReadRepository.cs" />
     <Compile Include="Repository\WriteRepository.cs" />
@@ -182,6 +187,10 @@
     <Content Include="App_Data\MecanicDatabase.mdf" />
     <Content Include="App_Data\MecanicDatabase_log.ldf">
       <DependentUpon>MecanicDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Users.mdf" />
+    <Content Include="App_Data\Users_log.ldf">
+      <DependentUpon>Users.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -219,8 +228,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{11711df6-bd9a-4b8e-8126-eb19526951d1}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

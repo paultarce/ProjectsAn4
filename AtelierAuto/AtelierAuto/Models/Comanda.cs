@@ -17,8 +17,8 @@ namespace AtelierAuto.Models
     {
         public Mecanic mecanic { get; private set; }
         public Client client { get; private set; }
-        public IDComanada iDComanda { get; private set; }  // primary key
-        public StareComanda stareComanda { get; private set; }
+        public Guid iDComanda { get; private set; }  // primary key
+        public StareComanda stareComanda { get;  set; }
         public Masina masina { get; private set; }
         public double cost { get; private set; }
 
@@ -29,15 +29,19 @@ namespace AtelierAuto.Models
         public  ReadOnlyCollection<Eveniment> EvenimenteNoi { get => _evenimenteNoi.AsReadOnly(); }
         public MagistralaEvenimente _magistralaEveniment;
 
+        public Comanda()
+        {
+
+        }
         public Comanda(Comanda comanda,MagistralaEvenimente magistrala = null)// for now
         {
             _magistralaEveniment = magistrala;
-            if ((Guid)comanda.iDComanda == Guid.Empty) throw new Exception("Id meci invalid");
-            var e = new EvenimentGeneric<Comanda>((Guid)comanda.iDComanda, TipEveniment.PlasareComnada, comanda);
+            if (comanda.iDComanda == Guid.Empty) throw new Exception("Id meci invalid");
+            var e = new EvenimentGeneric<Comanda>(comanda.iDComanda, TipEveniment.PlasareComnada, comanda);
             Aplica(e);
             PublicaEveniment(e);
         }
-        public Comanda(Mecanic mecanic, Client client,IDComanada iDComanada,Masina masina,string cerereClient)
+        public Comanda(Mecanic mecanic, Client client,Guid iDComanada,Masina masina,string cerereClient)
         {
             this.mecanic = mecanic;
             this.client = client;
@@ -58,24 +62,46 @@ namespace AtelierAuto.Models
         }
 
         //Eveniment
-
+        #region Evenimente
         public void PlasareComanda()
         {
-            var eveniment = new EvenimentGeneric<Comanda>((Guid)iDComanda, TipEveniment.PlasareComnada, "Plasare comanda");
+            var eveniment = new EvenimentGeneric<Comanda>((Guid)iDComanda, TipEveniment.PlasareComnada, new Comanda());
             Aplica(eveniment);
             PublicaEveniment(eveniment);
         }
+
+        public void AcceptareComanda()
+        {
+            var eveniment = new EvenimentGeneric<Comanda>((Guid)iDComanda, TipEveniment.AcceptareComanda, new Comanda());
+            Aplica(eveniment);
+            PublicaEveniment(eveniment);
+        }
+        public void FacturareComanda()
+        {
+            var eveniment = new EvenimentGeneric<Comanda>((Guid)iDComanda, TipEveniment.Facturare, new Comanda());
+            eveniment.Detalii.cost = CalculCostComanda();
+            Aplica(eveniment);
+            PublicaEveniment(eveniment);
+        }
+        #endregion
+
         public double CalculCostComanda()
         {
             //extrag stringul Pret : din evaluarea mecanicului
-
+            this.cost = 1230.4;
             return this.cost;
         }
 
         #region Procesare Evenimente
         private void Aplica(EvenimentGeneric<Comanda> e)
         {
-
+            this.mecanic = e.Detalii.mecanic;
+            this.client = e.Detalii.client;
+            this.iDComanda = e.Detalii.iDComanda;
+            this.masina = e.Detalii.masina;
+            this.cerereClient = e.Detalii.cerereClient;
+            this.stareComanda = StareComanda.Creeata;
+            
         }
 
         #endregion Procesare Evenimente
@@ -89,16 +115,19 @@ namespace AtelierAuto.Models
                     Aplica(e.ToGeneric<Comanda>());
                     break;
                 case TipEveniment.AcceptareComanda:
+                    Aplica(e.ToGeneric<Comanda>());
                     break;
                 case TipEveniment.EvaluareComanda_CalculCost:
+                    Aplica(e.ToGeneric<Comanda>());
                     break;
                 case TipEveniment.Lucreaza:
+                    Aplica(e.ToGeneric<Comanda>());
                     break;
                 case TipEveniment.Facturare:
+                    Aplica(e.ToGeneric<Comanda>());
                     break;
                 default:
-                    throw new EvenimentNecunoscutException();
-                    
+                    throw new EvenimentNecunoscutException();                
             }
 
         }

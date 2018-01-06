@@ -7,16 +7,13 @@ namespace AtelierAuto.Models.Generic
 {
     public class IDComanada
     {
-        private string _id;
-        public string Id { get { return _id; } }
-        public IDComanada(string id)
+        private Guid _id;
+        public Guid Id { get { return _id; } }
+        public IDComanada(Guid id)
         {
             _id = id;
         }
 
-        public static explicit operator Guid(IDComanada v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

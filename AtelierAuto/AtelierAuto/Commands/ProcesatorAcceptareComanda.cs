@@ -17,7 +17,7 @@ namespace AtelierAuto.Commands
         public override void Proceseaza(CommandAcceptareComanda command)//command -> comanda( arhitectura) ... comanda -> agg root
         {
             var repo = new WriteRepository();
-            var comanda = repo.GasesteComnada((Guid)command.IdComanda);
+            var comanda = repo.GasesteComnada((dynamic)command.IdComanda);
             // comanda. // metoda pentru schimbarea  starii in plasata
             repo.SalvareEvenimente(comanda);
         }

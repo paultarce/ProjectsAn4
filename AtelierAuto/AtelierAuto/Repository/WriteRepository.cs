@@ -6,6 +6,8 @@ using System.Collections.ObjectModel;
 using AtelierAuto.Models;
 using AtelierAuto.Evenimente;
 using System.IO;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace AtelierAuto.Repository
 {
@@ -43,9 +45,33 @@ namespace AtelierAuto.Repository
             List<Eveniment> toateEvenimentele = IncarcaListaDeEvenimente();
             toateEvenimentele.AddRange(evenimentNoi);
 
-            //scrie in baza de date evenimentele// sau in fisier : scrie - continut - fisier
-        }
+            string detalii;
+            var tipEveniment = "Plasare";
+            detalii = "Masina stircata";
+            var idRadacina = "Passat";
 
+            ///Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True
+            using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True")) //incerc si fara '
+            {
+                string _sql = @"INSERT INTO [dbo].[Comanda](TipEveniment,DetaliiEveniment,IdRadacina)" +
+                      "VALUES (@tipEveniment,@detalii,@IdRadacina)";
+                var cmd = new SqlCommand(_sql, cn);
+                cmd.Parameters
+                    .Add(new SqlParameter("@tipEveniment", SqlDbType.VarChar))
+                    .Value = tipEveniment;
+                cmd.Parameters
+                    .Add(new SqlParameter("@detalii", SqlDbType.VarChar))
+                    .Value = detalii;
+                cmd.Parameters
+                    .Add(new SqlParameter("@IdRadacina", SqlDbType.VarChar))
+                    .Value = idRadacina;
+                cn.Open();
+                var reader = cmd.ExecuteReader();
+
+
+                //scrie in baza de date evenimentele// sau in fisier : scrie - continut - fisier
+            }
+        }
         private void SalvareComandaInListaComenzi(Comanda comanda)
         {
             List<Comanda> toateComenzile = IncarcaListaDeComenzi();

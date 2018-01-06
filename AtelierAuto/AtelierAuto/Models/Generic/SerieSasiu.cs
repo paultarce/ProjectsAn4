@@ -12,7 +12,7 @@ namespace AtelierAuto.Models.Generic
         public string civ { get { return _sasiu; } }
         public SerieSasiu(string sasiu)
         {
-            Contract.Requires<ArgumentNullException>(sasiu.Length != 8, "SerieSasiu lenght not right");
+            //Contract.Requires<ArgumentNullException>(sasiu.Length != 8, "SerieSasiu lenght not right");
             _sasiu = sasiu;
 
         }

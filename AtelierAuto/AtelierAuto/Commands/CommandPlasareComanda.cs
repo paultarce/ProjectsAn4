@@ -9,7 +9,7 @@ namespace AtelierAuto.Commands
 {
     public class CommandPlasareComanda: Command
     {
-        public IDComanada IdComanada { get; set; }
+        public Guid IdComanada { get; set; }
         public Comanda Comanda { get; set; }
     }
 }
