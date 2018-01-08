@@ -29,13 +29,15 @@ namespace AtelierAuto.Repository
             return ObtineComenzi().Where(m => (dynamic)m.iDComanda == Id).FirstOrDefault();
         }
 
-        public List<Eveniment> IncarcaDinListaDeEvenimente()
+        public static List<Eveniment> IncarcaDinListaDeEvenimente()
         {
             List<Eveniment> toateEvenimentele = new List<Eveniment>();
             List<Eveniment> evenimenteCitite = new List<Eveniment>();
             //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True
+            //  using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
+            //    @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True'"))
             using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
-               @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True'"))
+              @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True"))
             {
                 string _sql = @"SELECT * FROM [dbo].[Comanda] ";
                 var cmd = new SqlCommand(_sql, cn);
@@ -46,14 +48,14 @@ namespace AtelierAuto.Repository
                     {
                         //afisez ce citesc din baza de date
                         Console.WriteLine(String.Format("{0} {1} {2} {3}", reader["id"], reader["TipEveniment"], reader["DetaliiEveniment"], reader["IdRadacina"]));
-                        Eveniment e = new Eveniment((Guid)reader["id"], (TipEveniment)reader["TipEveniment"], "Detalii");
+                    
+                        Eveniment e = new Eveniment(new Guid(), (TipEveniment)Enum.Parse(typeof(TipEveniment), reader["TipEveniment"].ToString()), "Detalii");
                         evenimenteCitite.Add(e);
                     }
                 }
             }
 
             return evenimenteCitite;
-
         }
     }
 }
