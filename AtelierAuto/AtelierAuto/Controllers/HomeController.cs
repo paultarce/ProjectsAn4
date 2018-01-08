@@ -26,5 +26,20 @@ namespace AtelierAuto.Controllers
 
             return View();
         }
+
+        public ActionResult ManipulareComenzi()
+        {
+
+            ViewBag.Message = "Ce doriti sa faceti?";
+
+            return View();
+        }
+        
+        public ActionResult AfisareComandaPlasata()
+        {
+
+            ViewBag.Message = "Comanda plasata:";
+            return View();
+        }
     }
 }

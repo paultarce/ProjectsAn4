@@ -36,14 +36,14 @@ namespace AtelierAuto.Repository
 
         public void SalvareEvenimente(Comanda comanda)
         {
-            SalvareEvenimente(comanda.EvenimenteNoi);
+           // SalvareEvenimente(comanda.EvenimenteNoi);
 
         }
 
-        public void SalvareEvenimente(ReadOnlyCollection<Eveniment> evenimentNoi)
+        public void SalvareEvenimente(Eveniment evenimentNoi)
         {
-            List<Eveniment> toateEvenimentele = IncarcaListaDeEvenimente();
-            toateEvenimentele.AddRange(evenimentNoi);
+          //  List<Eveniment> toateEvenimentele = IncarcaListaDeEvenimente();
+          //  toateEvenimentele.AddRange(evenimentNoi);
 
             string detalii;
             var tipEveniment = "Plasare";
@@ -51,10 +51,11 @@ namespace AtelierAuto.Repository
             var idRadacina = "Passat";
 
             ///Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True
-            using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True")) //incerc si fara '
+            using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename"+
+                @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True")) //incerc si fara '
             {
                 string _sql = @"INSERT INTO [dbo].[Comanda](TipEveniment,DetaliiEveniment,IdRadacina)" +
-                      "VALUES (@tipEveniment,@detalii,@IdRadacina)";
+                      "VALUES (@tipEveniment,@detalii,@idRadacina)";
                 var cmd = new SqlCommand(_sql, cn);
                 cmd.Parameters
                     .Add(new SqlParameter("@tipEveniment", SqlDbType.VarChar))

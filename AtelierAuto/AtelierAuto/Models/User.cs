@@ -31,9 +31,9 @@ namespace AtelierAuto.Models
         /// <returns>True if user exist and password is correct</returns>
         public bool IsValid(string _username, string _password)
         {
-            //Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf; Integrated Security = True
+            //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\Users.mdf;Integrated Security=True
             using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
-              @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True"))
+              @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\Users.mdf';Integrated Security=True"))
             {
                 string _sql = @"SELECT [Username] FROM [dbo].[System_Users] " +
                        @"WHERE [Username] = @u AND [Password] = @p";

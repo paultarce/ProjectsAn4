@@ -1,0 +1,35 @@
+﻿@model AtelierAuto.Models.Comanda
+@model AtelierAuto.Evenimente.Eveniment
+@{
+    ViewBag.Title = "AfisareComandaPlasata";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>AfisareComandaPlasata</h2>
+
+@using (Html.BeginForm())
+{
+
+  <div>
+     <fieldset>
+ 
+        <label>Mecanic</label> 
+        <input id="Text1" type="text" /><br />
+        <label>Client</label>
+        <input id="Text2" type="text" /><br />
+        <label>IdComanda</label>
+        <input id="Text3" type="text" /><br />
+        <label>StareComanda</label>
+        <input id="Text4" type="text" /><br />
+        <label>Masina(CIV)</label>
+        <input id="Text5" type="text" /><br />
+        <label>Cost</label>
+        <input id="Text6" type="text" /><br />
+        <label>CerereClient</label>
+        <input id="Text7" type="text" /><br />
+        <label>EvaluareMecanic</label>
+        <input id="Text8" type="text" /><br />
+
+        <input type="submit" value="Plasare Comanda" />
+     </fieldset>
+  </div>
+}

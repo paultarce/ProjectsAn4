@@ -5,6 +5,9 @@ using AtelierAuto.Models;
 using AtelierAuto.Models.Generic;
 using AtelierAuto.Repository;
 using AtelierAuto.Evenimente;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 
 
 namespace TestApplication
@@ -16,6 +19,7 @@ namespace TestApplication
             MagistralaCommands.Instance.Value.InregistreazaProcesatoareStandard();
             MagistralaEvenimente.Instanta.Value.InregistreazaProcesatoareStandard();
             MagistralaEvenimente.Instanta.Value.InchideInregistrarea();
+            List<Eveniment> eve = new List<Eveniment>();
 
             var writeRepo = new WriteRepository();
             var readRepo = new ReadRepository();
@@ -28,10 +32,13 @@ namespace TestApplication
 
             var commandPlasareComanda = new CommandPlasareComanda();
             MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
+            //AtlierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new ProcesatorPlasareComanda()
 
-            writeRepo.SalvareEvenimente(comanda);
-            readRepo.CautMeci(new Guid());
-            readRepo.IncarcaDinListaDeEvenimente();
+            AtelierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new AtelierAuto.Evenimente.ProcesatorPlasareComanda();
+
+           writeRepo.SalvareEvenimente(comanda);
+            //readRepo.CautaComanda(new Guid());
+           readRepo.IncarcaDinListaDeEvenimente();
 
             Console.ReadLine();
             Console.ReadKey();

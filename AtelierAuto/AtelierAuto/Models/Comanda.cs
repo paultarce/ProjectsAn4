@@ -61,6 +61,7 @@ namespace AtelierAuto.Models
             }
         }
 
+        
         //Eveniment
         #region Evenimente
         public void PlasareComanda()
@@ -100,7 +101,8 @@ namespace AtelierAuto.Models
             this.iDComanda = e.Detalii.iDComanda;
             this.masina = e.Detalii.masina;
             this.cerereClient = e.Detalii.cerereClient;
-            this.stareComanda = StareComanda.Creeata;
+            this.stareComanda = e.Detalii.stareComanda;
+            this.evaluareMecanic = e.Detalii.evaluareMecanic;
             
         }
 
