@@ -29,13 +29,15 @@ namespace ConsoleApp1
             var mecanic = new Mecanic(new PlainText("Nelutu"), 1);
             var client = new Client(new PlainText("Orlando"), 1);
 
-            var comanda = new Comanda(mecanic, client, new Guid(), masina, "reparatie turbina");
+            var comanda = new Comanda(mecanic, client,new IDComanada(1), masina, "reparatie turbina");
+
+            writeRepo.PlaseazaComanda(comanda);
 
             var commandPlasareComanda = new CommandPlasareComanda();
-            MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
+            //MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
             //AtlierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new ProcesatorPlasareComanda()
 
-            AtelierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new AtelierAuto.Evenimente.ProcesatorPlasareComanda();
+          //  AtelierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new AtelierAuto.Evenimente.ProcesatorPlasareComanda();
 
             //  SalvareEvenimente(comanda);
             //readRepo.CautaComanda(new Guid());

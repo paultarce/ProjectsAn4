@@ -15,11 +15,11 @@ namespace AtelierAuto.Evenimente
             var repo = new WriteRepository();
             var ePlasareComanda = e.ToGeneric<Comanda>();
 
-            var comanda = repo.GasesteComnada(ePlasareComanda.IdRadacina);
+            //var comanda = repo.GasesteComnada(ePlasareComanda.IdRadacina);
             // comanda. // metoda pentru schimbarea  starii in plasata
-            comanda.stareComanda = StareComanda.Creeata;
+            //comanda.stareComanda = StareComanda.Creeata;
             
-            repo.SalvareEvenimente(comanda);
+            repo.SalvareEvenimente(e);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace TestApplication
             var mecanic = new Mecanic(new PlainText("Nelutu"), 1);
             var client = new Client(new PlainText("Orlando"), 1);
 
-            var comanda = new Comanda(mecanic, client, new Guid(), masina, "reparatie turbina");
+            var comanda = new Comanda(mecanic, client, new IDComanada(5), masina, "reparatie turbina");
 
             var commandPlasareComanda = new CommandPlasareComanda();
             MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
@@ -39,7 +39,7 @@ namespace TestApplication
 
             // SalvareEvenimente(comanda);
             //readRepo.CautaComanda(new Guid());
-            readRepo.IncarcaDinListaDeEvenimente();
+            //readRepo.IncarcaDinListaDeEvenimente();
 
             Console.ReadLine();
             Console.ReadKey();

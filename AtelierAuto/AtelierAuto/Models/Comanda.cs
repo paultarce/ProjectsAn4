@@ -17,7 +17,7 @@ namespace AtelierAuto.Models
     {
         public Mecanic mecanic { get; private set; }
         public Client client { get; private set; }
-        public Guid iDComanda { get; private set; }  // primary key
+        public IDComanada iDComanda { get; private set; }  // primary key
         public StareComanda stareComanda { get;  set; }
         public Masina masina { get; private set; }
         public double cost { get; private set; }
@@ -35,13 +35,14 @@ namespace AtelierAuto.Models
         }
         public Comanda(Comanda comanda,MagistralaEvenimente magistrala = null)// for now
         {
+
             _magistralaEveniment = magistrala;
-            if (comanda.iDComanda == Guid.Empty) throw new Exception("Id meci invalid");
+            //if (comanda.iDComanda == Guid.Empty) throw new Exception("Id meci invalid");
             var e = new EvenimentGeneric<Comanda>(comanda.iDComanda, TipEveniment.PlasareComnada, comanda);
             Aplica(e);
             PublicaEveniment(e);
         }
-        public Comanda(Mecanic mecanic, Client client,Guid iDComanada,Masina masina,string cerereClient)
+        public Comanda(Mecanic mecanic, Client client,IDComanada iDComanda,Masina masina,string cerereClient)
         {
             this.mecanic = mecanic;
             this.client = client;
@@ -66,20 +67,20 @@ namespace AtelierAuto.Models
         #region Evenimente
         public void PlasareComanda()
         {
-            var eveniment = new EvenimentGeneric<Comanda>((Guid)iDComanda, TipEveniment.PlasareComnada, new Comanda());
+            var eveniment = new EvenimentGeneric<Comanda>(iDComanda, TipEveniment.PlasareComnada, new Comanda());
             Aplica(eveniment);
             PublicaEveniment(eveniment);
         }
 
         public void AcceptareComanda()
         {
-            var eveniment = new EvenimentGeneric<Comanda>((Guid)iDComanda, TipEveniment.AcceptareComanda, new Comanda());
+            var eveniment = new EvenimentGeneric<Comanda>(iDComanda, TipEveniment.AcceptareComanda, new Comanda());
             Aplica(eveniment);
             PublicaEveniment(eveniment);
         }
         public void FacturareComanda()
         {
-            var eveniment = new EvenimentGeneric<Comanda>((Guid)iDComanda, TipEveniment.Facturare, new Comanda());
+            var eveniment = new EvenimentGeneric<Comanda>(iDComanda, TipEveniment.Facturare, new Comanda());
             eveniment.Detalii.cost = CalculCostComanda();
             Aplica(eveniment);
             PublicaEveniment(eveniment);

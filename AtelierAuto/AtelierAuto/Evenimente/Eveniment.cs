@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json.Linq;
+using AtelierAuto.Models.Generic;
 
 namespace AtelierAuto.Evenimente
 {
     //in primul eveniment ( adaugare masina - Plasare comanda) pun si detaliile despre comanda
     public class Eveniment  //aceste evenimnete le pun in baza de date 
     {
-        public Guid Id { get; private set; } //Id eveniment 
-        public Guid IdRadacina { get; private set; } //identificatoru aggregation root-ului : comanda
+        public IDComanada Id { get; private set; } //Id eveniment 
+        public IDComanada IdRadacina { get; private set; } //identificatoru aggregation root-ului : comanda
         public TipEveniment Tip;
         public object Detalii { get; private set; }// detaliile despre obiectul adaugat ( comanda respectiva) 
                 //daca evenimentul meu este adaugare comanda ... acest obiect "Detalii" trebuie sa contina toate detaliile despre comanda mea in momentul adaugarii ei
 
-        public Eveniment(Guid idRadacina,TipEveniment tipEveniment,object detalii)
+        public Eveniment(IDComanada idRadacina,TipEveniment tipEveniment,object detalii)
         {
             Tip = tipEveniment;
             IdRadacina = idRadacina;
             Detalii = detalii;
-            Id = Guid.NewGuid();
+            Id = idRadacina ;
         }
 
         public EvenimentGeneric<T> ToGeneric<T>()
@@ -46,7 +47,7 @@ namespace AtelierAuto.Evenimente
 
     public class EvenimentGeneric<T> : Eveniment
     {
-        public EvenimentGeneric(Guid idRadacina,TipEveniment tipEveniment,T detalii) :base(idRadacina,tipEveniment,detalii)
+        public EvenimentGeneric(IDComanada idRadacina,TipEveniment tipEveniment,T detalii) :base(idRadacina,tipEveniment,detalii)
         {
         }
         public new T Detalii { get => (T)base.Detalii; }

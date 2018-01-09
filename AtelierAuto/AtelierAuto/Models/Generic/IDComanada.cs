@@ -7,9 +7,9 @@ namespace AtelierAuto.Models.Generic
 {
     public class IDComanada
     {
-        private Guid _id;
-        public Guid Id { get { return _id; } }
-        public IDComanada(Guid id)
+        private int _id;
+        public int Id { get { return _id; } }
+        public IDComanada(int id)
         {
             _id = id;
         }
