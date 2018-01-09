@@ -31,13 +31,13 @@ namespace ConsoleApp1
 
             var comanda = new Comanda(mecanic, client,new IDComanada(1), masina, "reparatie turbina");
 
-            writeRepo.PlaseazaComanda(comanda);
+            //writeRepo.PlaseazaComanda(comanda);
 
-            var commandPlasareComanda = new CommandPlasareComanda();
+            //var commandPlasareComanda = new CommandPlasareComanda();
             //MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
             //AtlierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new ProcesatorPlasareComanda()
 
-          //  AtelierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new AtelierAuto.Evenimente.ProcesatorPlasareComanda();
+            //AtelierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new AtelierAuto.Evenimente.ProcesatorPlasareComanda();
 
             //  SalvareEvenimente(comanda);
             //readRepo.CautaComanda(new Guid());

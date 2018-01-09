@@ -50,14 +50,15 @@ namespace AtelierAuto.Repository
             string detalii;
             var tipEveniment = evenimentNoi.Tip;
             detalii = "Blabla";
-            var IdRadacina = "Passat";
+            var IdRadacina = "5";
+            var IdEveniment = evenimentNoi.Id;
 
             ///Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True
             using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename"+
                 @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True")) //incerc si fara '
             {
-                string _sql = @"INSERT INTO [dbo].[Comanda](TipEveniment,DetaliiEveniment,IdRadacina)" +
-                      "VALUES (@tipEveniment,@detalii,@IdRadacina)";
+                string _sql = @"INSERT INTO [dbo].[Comanda](IdEveniment,TipEveniment,DetaliiEveniment,IdRadacina)" +
+                      "VALUES (@IdEveniment,@tipEveniment,@detalii,@IdRadacina)";
                 var cmd = new SqlCommand(_sql, cn);
                 cmd.Parameters
                     .Add(new SqlParameter("@tipEveniment", SqlDbType.VarChar))
@@ -67,6 +68,9 @@ namespace AtelierAuto.Repository
                     .Value = detalii;
                 cmd.Parameters
                     .Add(new SqlParameter("@IdRadacina", SqlDbType.VarChar))
+                    .Value = IdRadacina;
+                cmd.Parameters
+                    .Add(new SqlParameter("@IdEveniment", SqlDbType.VarChar))
                     .Value = IdRadacina;
                 cn.Open();
                 var reader = cmd.ExecuteReader();

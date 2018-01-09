@@ -49,8 +49,8 @@ namespace AtelierAuto.Repository
                     {
                         //afisez ce citesc din baza de date
                         Console.WriteLine(String.Format("{0} {1} {2} {3}", reader["Id"], reader["TipEveniment"], reader["DetaliiEveniment"], reader["IdRadacina"]));
-                    
-                        Eveniment e = new Eveniment(new IDComanada(Convert.ToInt32(reader["Id"])), (TipEveniment)Enum.Parse(typeof(TipEveniment), reader["TipEveniment"].ToString()), "Detalii");
+                        
+                        Eveniment e = new Eveniment(new IDComanada(Convert.ToInt32(reader["Id"])), TipEveniment.PlasareComnada, reader["DetaliiEveniment"]); //(TipEveniment)Enum.Parse(typeof(TipEveniment), reader["TipEveniment"].ToString())
                         evenimenteCitite.Add(e);
                     }
                 }
