@@ -30,3 +30,7 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\obj\Debug
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\obj\Debug\netcoreapp2.0\TestApplication.AssemblyInfo.cs
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\obj\Debug\netcoreapp2.0\TestApplication.dll
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\obj\Debug\netcoreapp2.0\TestApplication.pdb
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\bin\Debug\netcoreapp2.0\RabbitMQ.Client.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\bin\Debug\netcoreapp2.0\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\bin\Debug\netcoreapp2.0\RabbitMQ.Client.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestApplication\bin\Debug\netcoreapp2.0\Microsoft.Diagnostics.Tracing.EventSource.xml

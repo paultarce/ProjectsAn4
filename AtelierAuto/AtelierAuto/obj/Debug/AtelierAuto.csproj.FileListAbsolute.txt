@@ -84,3 +84,11 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\Microsoft
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\Microsoft.AI.Web.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\RabbitMQ.Client.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\Microsoft.Diagnostics.Tracing.EventSource.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\RabbitMQ.Client.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\EntityFramework.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\EntityFramework.SqlServer.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\EntityFramework.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\EntityFramework.SqlServer.xml

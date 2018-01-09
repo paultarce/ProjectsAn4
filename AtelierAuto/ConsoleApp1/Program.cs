@@ -31,7 +31,7 @@ namespace ConsoleApp1
 
             var comanda = new Comanda(mecanic, client,new IDComanada(1), masina, "reparatie turbina");
 
-            //writeRepo.PlaseazaComanda(comanda);
+            writeRepo.PlaseazaComanda(comanda);
 
             //var commandPlasareComanda = new CommandPlasareComanda();
             //MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
@@ -42,11 +42,9 @@ namespace ConsoleApp1
             //  SalvareEvenimente(comanda);
             //readRepo.CautaComanda(new Guid());
             // readRepo.IncarcaDinListaDeEvenimente();
-            eve = ReadRepository.IncarcaDinListaDeEvenimente();
+            //eve = ReadRepository.IncarcaDinListaDeEvenimente();
             Console.ReadLine();
             Console.ReadKey();
-        }
-
-        
+        }  
     }
 }

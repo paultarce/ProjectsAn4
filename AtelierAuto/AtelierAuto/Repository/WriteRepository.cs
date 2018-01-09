@@ -9,6 +9,9 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Data;
 using AtelierAuto.Models.Generic;
+using RabbitMQ.Client;
+using System.Text;
+
 
 
 namespace AtelierAuto.Repository
@@ -33,19 +36,19 @@ namespace AtelierAuto.Repository
             SalvareEvenimente(comandaNoua);
             SalvareComandaInListaComenzi(comanda);
             return comandaNoua;
-            
+
         }
 
         public void SalvareEvenimente(Comanda comanda)
         {
-           // SalvareEvenimente(comanda.EvenimenteNoi);
+            // SalvareEvenimente(comanda.EvenimenteNoi);
 
         }
 
         public void SalvareEvenimente(Eveniment evenimentNoi)
         {
-          //  List<Eveniment> toateEvenimentele = IncarcaListaDeEvenimente();
-          //  toateEvenimentele.AddRange(evenimentNoi);
+            //  List<Eveniment> toateEvenimentele = IncarcaListaDeEvenimente();
+            //  toateEvenimentele.AddRange(evenimentNoi);
 
             string detalii;
             var tipEveniment = evenimentNoi.Tip;
@@ -54,7 +57,7 @@ namespace AtelierAuto.Repository
             var IdEveniment = evenimentNoi.Id;
 
             ///Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True
-            using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename"+
+            using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
                 @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True")) //incerc si fara '
             {
                 string _sql = @"INSERT INTO [dbo].[Comanda](IdEveniment,TipEveniment,DetaliiEveniment,IdRadacina)" +
@@ -75,6 +78,7 @@ namespace AtelierAuto.Repository
                 cn.Open();
                 var reader = cmd.ExecuteReader();
 
+                TrimiteNotificareaLaMecanic(); //RABBIT MQ
 
                 //scrie in baza de date evenimentele// sau in fisier : scrie - continut - fisier
             }
@@ -100,6 +104,38 @@ namespace AtelierAuto.Repository
             //citire din DB evenimente 
             return toateEvenimentele;
         }
-       
+        public void TrimiteNotificareaLaMecanic()
+        {
+            Send objSend = new Send();
+            objSend.Sender();
+        }
+    }
+
+    class Send //CLIENTUL TRIMITE COMANDA
+    {
+        public void Sender()
+        {
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "hello",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = "ComandaPlasata";
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "hello",
+                                     basicProperties: null,
+                                     body: body);
+                Console.WriteLine("ComandaPlasata", message);
+            }
+
+            
+        }
     }
 }
