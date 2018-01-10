@@ -34,11 +34,16 @@ namespace AtelierAuto.Controllers
 
             return View();
         }
-        
+
         public ActionResult AfisareComandaPlasata()
         {
 
             ViewBag.Message = "Comanda plasata:";
+            return View();
+        }
+
+        public ActionResult ManipulareComenziPlasare()
+        {
             return View();
         }
     }
