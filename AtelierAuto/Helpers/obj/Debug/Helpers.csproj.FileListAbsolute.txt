@@ -3,3 +3,4 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\Helpers\bin\Debug\Helpers
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\Helpers\obj\Debug\Helpers.csproj.CoreCompileInputs.cache
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\Helpers\obj\Debug\Helpers.dll
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\Helpers\obj\Debug\Helpers.pdb
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\Helpers\obj\Debug\Helpers.csprojResolveAssemblyReference.cache

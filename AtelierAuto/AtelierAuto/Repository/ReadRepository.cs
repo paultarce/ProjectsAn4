@@ -30,7 +30,7 @@ namespace AtelierAuto.Repository
             return ObtineComenzi().Where(m => (dynamic)m.iDComanda == Id).FirstOrDefault();
         }
 
-        public static List<Eveniment> IncarcaDinListaDeEvenimente()
+        public static List<Eveniment> IncarcaDinListaDeEvenimente() // sau list <comenzi>
         {
             List<Eveniment> toateEvenimentele = new List<Eveniment>();
             List<Eveniment> evenimenteCitite = new List<Eveniment>();
@@ -49,7 +49,13 @@ namespace AtelierAuto.Repository
                     {
                         //afisez ce citesc din baza de date
                         Console.WriteLine(String.Format("{0} {1} {2} {3}", reader["Id"], reader["TipEveniment"], reader["DetaliiEveniment"], reader["IdRadacina"]));
+                       
+
+                        // split pe detalii: campurile din detaliii sa  fie string - split cu " split(' " ');
+                        // din Detalii imi creez un agg root .
                         
+
+
                         Eveniment e = new Eveniment(new IDComanada(Convert.ToInt32(reader["Id"])), TipEveniment.PlasareComnada, reader["DetaliiEveniment"]); //(TipEveniment)Enum.Parse(typeof(TipEveniment), reader["TipEveniment"].ToString())
                         evenimenteCitite.Add(e);
                     }
