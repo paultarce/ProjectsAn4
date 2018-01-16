@@ -11,6 +11,7 @@ using System.IO;
 using System.Data.SqlClient;
 
 
+
 namespace TestApplication
 {
     class Program
@@ -32,10 +33,11 @@ namespace TestApplication
             var comanda = new Comanda(mecanic, client, new IDComanada(5), masina, "reparatie turbina");
 
             var commandPlasareComanda = new CommandPlasareComanda();
+            commandPlasareComanda.Comanda = comanda;
             MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
             //AtlierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new ProcesatorPlasareComanda()
 
-            AtelierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new AtelierAuto.Evenimente.ProcesatorPlasareComanda();
+            //AtelierAuto.Evenimente.ProcesatorPlasareComanda procesatorPlasareComanda = new AtelierAuto.Evenimente.ProcesatorPlasareComanda();
 
             // SalvareEvenimente(comanda);
             //readRepo.CautaComanda(new Guid());

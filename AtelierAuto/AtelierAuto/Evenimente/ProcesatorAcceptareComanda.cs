@@ -18,7 +18,7 @@ namespace AtelierAuto.Evenimente
             // comanda. // metoda pentru schimbarea  starii in plasata
             comanda.stareComanda = StareComanda.Acceptata;
 
-            repo.SalvareEvenimente(comanda);
+            //repo.SalvareEvenimente(comanda);
         }
     }
 }

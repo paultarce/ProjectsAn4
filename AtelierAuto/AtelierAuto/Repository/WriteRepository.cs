@@ -6,11 +6,16 @@ using System.Collections.ObjectModel;
 using AtelierAuto.Models;
 using AtelierAuto.Evenimente;
 using System.IO;
-using System.Data.SqlClient;
+
 using System.Data;
+using System.Data.SqlClient;
+
+using System.Data.SqlTypes;
+using System.Data.Sql;
 using AtelierAuto.Models.Generic;
 using RabbitMQ.Client;
 using System.Text;
+using Newtonsoft.Json;
 
 
 
@@ -33,28 +38,23 @@ namespace AtelierAuto.Repository
         public Comanda PlaseazaComanda(Comanda comanda)
         {
             var comandaNoua = new Comanda(comanda);
-            SalvareEvenimente(comandaNoua);
+            //SalvareEvenimente(comandaNoua);
             SalvareComandaInListaComenzi(comanda);
             return comandaNoua;
 
         }
 
-        public void SalvareEvenimente(Comanda comanda)
-        {
-            // SalvareEvenimente(comanda.EvenimenteNoi);
-
-        }
-
+       
         public void SalvareEvenimente(Eveniment evenimentNoi)
         {
             //  List<Eveniment> toateEvenimentele = IncarcaListaDeEvenimente();
             //  toateEvenimentele.AddRange(evenimentNoi);
 
-            string detalii;
+            string detalii = JsonConvert.SerializeObject(evenimentNoi.Detalii);
             var tipEveniment = evenimentNoi.Tip;
-            detalii = "Blabla";
-            var IdRadacina = "5";
-            var IdEveniment = evenimentNoi.Id;
+            // detalii = 
+            var IdRadacina = evenimentNoi.IdRadacina.Id;
+            var IdEveniment = evenimentNoi.Id.Id;
 
             ///Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True
             using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
@@ -81,6 +81,34 @@ namespace AtelierAuto.Repository
                 TrimiteNotificareaLaMecanic(); //RABBIT MQ
 
                 //scrie in baza de date evenimentele// sau in fisier : scrie - continut - fisier
+            }
+        }
+
+        public bool StergereMasina(string idRadacina)
+        {
+            using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
+                 @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True")) //incerc si fara '
+            {
+                string _sql = @"DELETE FROM [dbo].[Comanda] WHERE [IdRadacina]=@idRadacina";
+
+                var cmd = new SqlCommand(_sql, cn);
+                cmd.Parameters
+                    .Add(new SqlParameter("@idRadacina", SqlDbType.NVarChar))
+                    .Value = idRadacina;
+                cn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Dispose();
+                    cmd.Dispose();
+                    return true;
+                }
+                else
+                {
+                    reader.Dispose();
+                    cmd.Dispose();
+                    return false;
+                }
             }
         }
         private void SalvareComandaInListaComenzi(Comanda comanda)
@@ -135,7 +163,7 @@ namespace AtelierAuto.Repository
                 Console.WriteLine("ComandaPlasata", message);
             }
 
-            
+
         }
     }
 }

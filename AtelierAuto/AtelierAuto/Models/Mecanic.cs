@@ -7,8 +7,8 @@ namespace AtelierAuto.Models
 {
     public class Mecanic
     {       
-        public PlainText nume { get; private set; }
-        public int idMecanic { get; private set; }
+        public PlainText nume { get;  set; }
+        public int idMecanic { get;  set; }
 
         public Mecanic(PlainText nume, int idMecanic)
         {

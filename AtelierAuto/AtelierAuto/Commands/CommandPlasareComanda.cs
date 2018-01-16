@@ -8,8 +8,7 @@ using AtelierAuto.Models;
 namespace AtelierAuto.Commands
 {
     public class CommandPlasareComanda: Command
-    {
-        public Guid IdComanada { get; set; }
+    {        
         public Comanda Comanda { get; set; }
     }
 }

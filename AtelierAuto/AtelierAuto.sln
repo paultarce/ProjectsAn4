@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiverMecanic", "ReceiverMecanic\ReceiverMecanic.csproj", "{F31BC9AA-AC3C-4A53-8477-43416D5E5094}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppFinal", "TestAppFinal\TestAppFinal.csproj", "{DF8E384B-C78B-4616-9C06-CF43742E0812}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F31BC9AA-AC3C-4A53-8477-43416D5E5094}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F31BC9AA-AC3C-4A53-8477-43416D5E5094}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F31BC9AA-AC3C-4A53-8477-43416D5E5094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8E384B-C78B-4616-9C06-CF43742E0812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8E384B-C78B-4616-9C06-CF43742E0812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8E384B-C78B-4616-9C06-CF43742E0812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8E384B-C78B-4616-9C06-CF43742E0812}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

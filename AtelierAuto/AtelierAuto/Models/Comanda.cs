@@ -25,9 +25,9 @@ namespace AtelierAuto.Models
         public string cerereClient { get; private set; }
         public List<string> evaluareMecanic { get; private set; } // every element in list : one thing to do for the car( from the mechanig point of view ) 
 
-        public readonly List<Eveniment> _evenimenteNoi = new List<Eveniment>();
+        private readonly List<Eveniment> _evenimenteNoi = new List<Eveniment>();
         public  ReadOnlyCollection<Eveniment> EvenimenteNoi { get => _evenimenteNoi.AsReadOnly(); }
-        public MagistralaEvenimente _magistralaEveniment;
+        private MagistralaEvenimente _magistralaEveniment;
 
         public Comanda()
         {
@@ -65,9 +65,9 @@ namespace AtelierAuto.Models
         
         //Eveniment
         #region Evenimente
-        public void PlasareComanda()
+        public void PlasareComanda(Comanda comanda)
         {
-            var eveniment = new EvenimentGeneric<Comanda>(iDComanda, TipEveniment.PlasareComnada, new Comanda());
+            var eveniment = new EvenimentGeneric<Comanda>(comanda.iDComanda, TipEveniment.PlasareComnada,comanda);
             Aplica(eveniment);
             PublicaEveniment(eveniment);
         }

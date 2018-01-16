@@ -31,3 +31,10 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\Ant
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\RabbitMQ.Client.xml
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\EntityFramework.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\EntityFramework.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ConsoleApp1\bin\Debug\EntityFramework.SqlServerCompact.xml

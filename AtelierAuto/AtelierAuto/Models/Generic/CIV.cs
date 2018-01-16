@@ -10,7 +10,7 @@ namespace AtelierAuto.Models.Generic
     {
         private string _civ;
         public string civ { get { return _civ; } }
-        public CIV(string data)
+        public CIV(string civ)
         {
             //Contract.Requires<ArgumentNullException>(data.Length != 8, "CIV lenght not right");
             _civ = civ;

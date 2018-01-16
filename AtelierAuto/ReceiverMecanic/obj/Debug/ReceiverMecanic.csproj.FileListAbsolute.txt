@@ -34,3 +34,10 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\obj\Debug
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\obj\Debug\ReceiverMecanic.csproj.CoreCompileInputs.cache
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\obj\Debug\ReceiverMecanic.exe
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\obj\Debug\ReceiverMecanic.pdb
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.SqlServerCompact.xml
