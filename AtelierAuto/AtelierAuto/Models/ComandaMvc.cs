@@ -9,15 +9,15 @@ namespace AtelierAuto.Models
     public class ComandaMvc
     {
 
-        public Mecanic mecanic { get; private set; }
-        public Client client { get; private set; }
-        public IDComanada iDComanda { get; private set; }  // primary key
+        public Mecanic mecanic { get;  set; }
+        public Client client { get;  set; }
+        public IDComanada iDComanda { get;  set; }  // primary key
         public StareComanda stareComanda { get; set; }
-        public Masina masina { get; private set; }
-        public double cost { get; private set; }
+        public Masina masina { get;  set; }
+        public double cost { get;  set; }
 
-        public string cerereClient { get; private set; }
-        public List<string> evaluareMecanic { get; private set; }
+        public string cerereClient { get;  set; }
+        public List<string> evaluareMecanic { get;  set; }
 
         public ComandaMvc()
         {

@@ -110,10 +110,11 @@ namespace AtelierAuto.Repository
 
 
 
-        public static List<Eveniment> IncarcaDinListaDeEvenimente() // sau list <comenzi>
+        public static List<Comanda> IncarcaDinListaDeEvenimente() // sau list <comenzi>
         {
             List<Eveniment> toateEvenimentele = new List<Eveniment>();
             List<Eveniment> evenimenteCitite = new List<Eveniment>();
+            List<Comanda> comanda = new List<Comanda>();
             //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf;Integrated Security=True
             //  using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
             //    @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True'"))
@@ -143,14 +144,16 @@ namespace AtelierAuto.Repository
                         Comanda c = new Comanda(new Mecanic(new PlainText(tokens[7]), int.Parse(idMecanic)), new Client(new PlainText(tokens[17]), int.Parse(idClient)), new IDComanada(int.Parse(idComanda)),
                             new Masina(new PlainText(tokens[33]),int.Parse(anFabricatie), new CIV(tokens[41]), new SerieSasiu(tokens[47])), tokens[53]);
 
-                            //Produs p = new Produs(new PlainText(tokens[5]), new PlainText(tokens[11]), new PlainText(tokens[17]), (TipProdus)Enum.Parse(typeof(TipProdus), tip), new PlainText(tokens[25]), new PlainText(tokens[31]), new PlainText(tokens[37]), new PlainText(tokens[43]), new PlainText(tokens[49]), (StareProdus)Enum.Parse(typeof(StareProdus), stare));
-                      //  Eveniment e = new Eveniment(new IDComanada(Convert.ToInt32(reader["Id"])), TipEveniment.PlasareComnada, reader["DetaliiEveniment"]); //(TipEveniment)Enum.Parse(typeof(TipEveniment), reader["TipEveniment"].ToString())
-                       // evenimenteCitite.Add(e);
+                        //Produs p = new Produs(new PlainText(tokens[5]), new PlainText(tokens[11]), new PlainText(tokens[17]), (TipProdus)Enum.Parse(typeof(TipProdus), tip), new PlainText(tokens[25]), new PlainText(tokens[31]), new PlainText(tokens[37]), new PlainText(tokens[43]), new PlainText(tokens[49]), (StareProdus)Enum.Parse(typeof(StareProdus), stare));
+                        //  Eveniment e = new Eveniment(new IDComanada(Convert.ToInt32(reader["Id"])), TipEveniment.PlasareComnada, reader["DetaliiEveniment"]); //(TipEveniment)Enum.Parse(typeof(TipEveniment), reader["TipEveniment"].ToString())
+                        // evenimenteCitite.Add(e);
+
+                        comanda.Add(c);
                     }
                 }
             }
 
-            return evenimenteCitite;
+            return comanda;
         }
     }
 }

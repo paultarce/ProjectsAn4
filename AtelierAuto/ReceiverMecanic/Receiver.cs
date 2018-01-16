@@ -78,7 +78,7 @@ namespace ReceiverMecanic
                     {
                         Console.WriteLine("Comanda a fost plasata - se poate citi din baza de date ");
                         k = 3;
-                        eve = ReadRepository.IncarcaDinListaDeEvenimente();
+                       // eve = ReadRepository.IncarcaDinListaDeEvenimente();
                     }
                 }
 
