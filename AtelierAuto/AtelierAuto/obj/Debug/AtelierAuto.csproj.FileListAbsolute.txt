@@ -114,3 +114,11 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\EntityFra
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\System.Data.SqlServerCe.dll
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\Helpers.dll.config
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\EntityFramework.SqlServerCompact.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.abstractions.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.assert.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.core.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.execution.desktop.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.abstractions.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.assert.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.core.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\bin\xunit.execution.desktop.xml

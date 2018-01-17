@@ -15,6 +15,7 @@ namespace AtelierAuto.Commands
             magistrala.InregistreazaProcesator(new ProcesatorPlasareComanda());
             magistrala.InregistreazaProcesator(new ProcesatorAcceptareComanda());
             magistrala.InregistreazaProcesator(new ProcesatorFacturare());
+            magistrala.InregistreazaProcesator(new ProcesatorStergeComanda());
         }
     }
 }

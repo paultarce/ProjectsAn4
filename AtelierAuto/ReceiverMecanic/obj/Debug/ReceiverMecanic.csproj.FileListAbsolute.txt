@@ -41,3 +41,11 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.xml
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.abstractions.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.assert.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.core.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.execution.desktop.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.abstractions.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.assert.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.core.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\ReceiverMecanic\bin\Debug\xunit.execution.desktop.xml

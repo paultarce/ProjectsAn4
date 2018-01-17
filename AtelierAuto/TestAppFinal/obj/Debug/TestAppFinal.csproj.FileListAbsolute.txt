@@ -28,3 +28,14 @@ C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\obj\Debug\Te
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\obj\Debug\TestAppFinal.csproj.CoreCompileInputs.cache
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\obj\Debug\TestAppFinal.exe
 C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\obj\Debug\TestAppFinal.pdb
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.abstractions.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.assert.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.core.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.execution.desktop.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\WebGrease.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.abstractions.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.assert.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.core.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\xunit.execution.desktop.xml
+C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\TestAppFinal\bin\Debug\Antlr3.Runtime.pdb

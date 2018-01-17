@@ -84,13 +84,14 @@ namespace AtelierAuto.Repository
             }
         }
 
-        public bool StergereMasina(string idRadacina)
+        public bool StergereComanda(string idRadacina)
         {
+            //string idRadacina = id.ToString();
             using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
                  @"='C:\Users\Paul\Documents\GitHub\ProjectsAn4\AtelierAuto\AtelierAuto\App_Data\MecanicDatabase.mdf';Integrated Security=True")) //incerc si fara '
             {
-                string _sql = @"DELETE FROM [dbo].[Comanda] WHERE [IdRadacina]=@idRadacina";
-
+                  string _sql = @"DELETE FROM [dbo].[Comanda] WHERE [IdRadacina]=@idRadacina";
+                //string _sql = @"SELECT * FROM [dbo].[Comanda] WHERE [IdRadacina]=@idRadacina";
                 var cmd = new SqlCommand(_sql, cn);
                 cmd.Parameters
                     .Add(new SqlParameter("@idRadacina", SqlDbType.NVarChar))

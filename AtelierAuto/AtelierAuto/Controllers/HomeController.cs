@@ -18,7 +18,7 @@ namespace AtelierAuto.Controllers
 
         public HomeController()
         {
-                    
+
         }
         public ActionResult Index()
         {
@@ -84,11 +84,11 @@ namespace AtelierAuto.Controllers
         }
 
 
-      /*  public ActionResult AdaugaComanda1()
-        {
-            return View("AdaugaComanda");
-        }
-        */
+        /*  public ActionResult AdaugaComanda1()
+          {
+              return View("AdaugaComanda");
+          }
+          */
 
         [HttpPost]
         public ActionResult CautaComanda(ComandaMvc mvc) // dupa model masina
@@ -102,19 +102,19 @@ namespace AtelierAuto.Controllers
             {
 
                 //if (c.iDComanda.Id == mvc.iDComanda.Id)
-                if(c.masina.Model.Equals(mvc.masina.Model))
+                if (c.masina.Model.Equals(mvc.masina.Model))
                 {
                     /*mvc2 = new ComandaMvc(c.mecanic.nume, c.mecanic.idMecanic, c.client.nume, c.client.idClient,
                        c.iDComanda, c.masina.Model, c.masina.anFabricatie, c.masina.civ, c.masina.serieSasiu,
                        c.cerereClient);
                        */
                     mvc2 = new ComandaMvc { mecanic = c.mecanic, client = c.client, iDComanda = c.iDComanda, masina = c.masina, cerereClient = c.cerereClient };
-                       comanda.Add(mvc2);
+                    comanda.Add(mvc2);
                 }
             }
 
             ViewBag.Model = comanda;
-            return View("AfisareComenzi",comanda);
+            return View("AfisareComenzi", comanda);
         }
 
         public ActionResult CautaComanda2()
@@ -133,8 +133,8 @@ namespace AtelierAuto.Controllers
             //MagistralaEvenimente.Instanta.Value.InregistreazaProcesatoareStandard();
             //MagistralaEvenimente.Instanta.Value.InchideInregistrarea();
             //Berilna
-            mvc.iDComanda = new Models.Generic.IDComanada(8);
-            mvc.masina.civ = new Models.Generic.CIV("CCCCCBBBBB");
+            mvc.iDComanda = new Models.Generic.IDComanada(11);
+            mvc.masina.civ = new Models.Generic.CIV("WWWWWWWW");
             mvc.masina.serieSasiu = new Models.Generic.SerieSasiu("ABCDEFGH");
             var commandPlasareComanda = new CommandPlasareComanda();
             /* Masina m = new Masina(new PlainText(mVC.CIV), mVC.Tip, new PlainText(mVC.Marca.ToString()), new PlainText(mVC.Model.ToString()),
@@ -155,30 +155,67 @@ namespace AtelierAuto.Controllers
         public ActionResult AfisareComenzi()
         {
             //var repo = new ReadRepository();
-           // comandaRepo = ReadRepository.IncarcaDinListaDeComenzi();
+            // comandaRepo = ReadRepository.IncarcaDinListaDeComenzi();
             var comandaRepo = ReadRepository.IncarcaDinListaDeEvenimente();
             // List<ComandaMvc> comanda = new List<ComandaMvc>();
             //  foreach (Comanda c in comandaRepo)
             //{
             // string idCom = c.iDComanda.ToString();
-           
+
             /* var mvc = new ComandaMvc(c.mecanic.nume, c.mecanic.idMecanic, c.client.nume, c.client.idClient,
                  c.iDComanda, c.masina.Model, c.masina.anFabricatie, c.masina.civ, c.masina.serieSasiu,
                  c.cerereClient); 
                  */
-            comandaMcv = comandaRepo.Select(c => new ComandaMvc{
-               mecanic = c.mecanic , client = c.client , iDComanda = c.iDComanda, stareComanda = c.stareComanda,
-               masina = c.masina , cerereClient = c.cerereClient , cost = c.cost , evaluareMecanic = c.evaluareMecanic 
-                }).ToList();
+            comandaMcv = comandaRepo.Select(c => new ComandaMvc
+            {
+                mecanic = c.mecanic,
+                client = c.client,
+                iDComanda = c.iDComanda,
+                stareComanda = c.stareComanda,
+                masina = c.masina,
+                cerereClient = c.cerereClient,
+                cost = c.cost,
+                evaluareMecanic = c.evaluareMecanic
+            }).ToList();
 
 
 
-                //comanda.Add(mvc);
-         //   }
+            //comanda.Add(mvc);
+            //   }
             ViewBag.Model = comandaMcv;
             return View(comandaMcv);
         }
 
-       // public ActionResult
+        // public ActionResult
+        public ActionResult DeleteComanda()
+        {
+            return View("Delete");
+        }
+
+        public ActionResult Delete(string id)
+        {
+            //id radacina => 8
+            id = "11";
+            var commandStergereComanda = new CommandStergeComanda();
+            commandStergereComanda.id = int.Parse(id);
+            var repo = new ReadRepository();
+            comandaRepo = ReadRepository.IncarcaDinListaDeEvenimente();
+            List<ComandaMvc> comanda = new List<ComandaMvc>();
+
+            foreach (Comanda c in comandaRepo)
+            {
+
+                //if (c.iDComanda.Id == mvc.iDComanda.Id)
+                if (c.iDComanda.Id== commandStergereComanda.id)
+                {
+                  
+                    comandaMcv.Remove(
+                        comandaMcv.Find(_ => _.iDComanda.Id == commandStergereComanda.id));
+                    MagistralaCommands.Instance.Value.Trimite(commandStergereComanda);
+                }
+            }
+            ViewBag.Model = comanda;
+            return View("HomePage");
+        }
     }
 }

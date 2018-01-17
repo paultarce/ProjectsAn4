@@ -1,0 +1,21 @@
+﻿@model AtelierAuto.Models.ComandaMvc
+
+@{
+    ViewBag.Title = "StergeComanda";
+}
+<h2>CautareComanda</h2>
+@using (Html.BeginForm("Delete", "Home", FormMethod.Post, new { @class = "linkStyle", mvc = @Model }))
+{
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(c => c.iDComanda.Id)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(c => c.iDComanda.Id)
+            </div>
+
+            <input type="submit" value="StergereComanda" />
+        </fieldset>
+    </div>
+}

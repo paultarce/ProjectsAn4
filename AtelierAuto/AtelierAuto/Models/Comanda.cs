@@ -13,7 +13,7 @@ namespace AtelierAuto.Models
 {
 
     // Agg Root : Comanda
-    public class Comanda
+    public class Comanda : IComandaSource
     {
         public Mecanic mecanic { get; private set; }
         public Client client { get; private set; }
