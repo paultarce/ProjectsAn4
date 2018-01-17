@@ -11,6 +11,10 @@ namespace AtelierAuto.Models
         public  int IdFactura { get; private set; }
         public double totalPlata { get; private set; }
 
+        public Factura()
+        {
+
+        }
         //creez factura
         public Factura(int IdFactura,List<Comanda> comenzi)
         {

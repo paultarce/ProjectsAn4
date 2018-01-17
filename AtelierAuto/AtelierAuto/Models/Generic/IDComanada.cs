@@ -13,7 +13,10 @@ namespace AtelierAuto.Models.Generic
         {
             _id = id;
         }
+        public IDComanada()
+        {
 
+        }
        
     }
 }

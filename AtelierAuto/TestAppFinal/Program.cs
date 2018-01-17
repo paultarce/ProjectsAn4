@@ -26,26 +26,27 @@ namespace TestAppFinal
             var writeRepo = new WriteRepository();
             var readRepo = new ReadRepository();
 
-            Masina masina = new Masina(new PlainText("WV Passat"), 2005, new CIV("EI309MNN"), new SerieSasiu("ALABALAPR"));
-            Mecanic mecanic = new Mecanic(new PlainText("Nelutu"), 1);
-            Client client = new Client(new PlainText("Orlando"), 1);
+            Masina masina = new Masina("WV Passat", 2005, new CIV("EI309MNN"), new SerieSasiu("ALABALAPR"));
+            Mecanic mecanic = new Mecanic("Nelutu", 1);
+            Client client = new Client("Orlando", 1);
 
-            Masina masina2 = new Masina(new PlainText("Audi A6"), 2014, new CIV("AAAAAAAA"), new SerieSasiu("BBBBBBBB"));
-            Mecanic mecanic2 = new Mecanic(new PlainText("Dorel"), 4);
-            Client client2 = new Client(new PlainText("Tarce"), 14);
+            Masina masina2 = new Masina("Opel Astra", 2010, new CIV("PPPPPPPP"), new SerieSasiu("SASIUAUD"));
+            Mecanic mecanic2 = new Mecanic("Mihai", 3);
+            Client client2 = new Client("Popa", 15);
+
             var comanda = new Comanda(mecanic, client, new IDComanada(5), masina, "distributie");
 
             //readRepo.CautaComanda("5");
             
-            var comanda2 = new Comanda(mecanic2, client2, new IDComanada(2), masina2, "reparatie turbina");
+            var comanda2 = new Comanda(mecanic2, client2, new IDComanada(9), masina2, "Distributie,volanta");
 
             //ReadRepository.IncarcaDinListaDeEvenimente();
 
-            /* ADAUG COMANDA 1
-             * var commandPlasareComanda = new CommandPlasareComanda();
+             //ADAUG COMANDA 1
+              var commandPlasareComanda = new CommandPlasareComanda();
              commandPlasareComanda.Comanda = comanda;
              MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda);
-             */
+             
 
 
             // ADAUG COMANDA 2

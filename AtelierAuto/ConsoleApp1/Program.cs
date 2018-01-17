@@ -25,9 +25,9 @@ namespace ConsoleApp1
             var writeRepo = new WriteRepository();
             var readRepo = new ReadRepository();
 
-            var masina = new Masina(new PlainText("WV Passat"), 2005, new CIV("EI309MNN"), new SerieSasiu("ALABALAPR"));
-            var mecanic = new Mecanic(new PlainText("Nelutu"), 1);
-            var client = new Client(new PlainText("Orlando"), 1);
+            var masina = new Masina("WV Passat", 2005, new CIV("EI309MNN"), new SerieSasiu("ALABALAPR"));
+            var mecanic = new Mecanic("Nelutu", 1);
+            var client = new Client("Orlando", 1);
 
             var comanda = new Comanda(mecanic, client,new IDComanada(1), masina, "reparatie turbina");
 

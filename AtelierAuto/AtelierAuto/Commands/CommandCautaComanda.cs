@@ -6,7 +6,7 @@ using AtelierAuto.Models;
 
 namespace AtelierAuto.Commands
 {
-    public class CommandCautaComanda
+    public class CommandCautaComanda : Command
     {
         public Comanda Comanda { get; set; }
     }

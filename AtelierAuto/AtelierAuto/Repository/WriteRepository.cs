@@ -78,7 +78,7 @@ namespace AtelierAuto.Repository
                 cn.Open();
                 var reader = cmd.ExecuteReader();
 
-                TrimiteNotificareaLaMecanic(); //RABBIT MQ
+              //  TrimiteNotificareaLaMecanic(); //RABBIT MQ
 
                 //scrie in baza de date evenimentele// sau in fisier : scrie - continut - fisier
             }

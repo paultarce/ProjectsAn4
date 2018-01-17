@@ -73,7 +73,7 @@ namespace AtelierAuto.Repository
             return comneziCitite; 
         }
 
-        public Comanda CautaComanda(string idRadacina)
+        public bool CautaComanda(string idRadacina)
         {
             Comanda c = new Comanda();
             using (var cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename" +
@@ -88,25 +88,42 @@ namespace AtelierAuto.Repository
                     .Value = idRadacina;
 
                 cn.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
+
+                var reader = cmd.ExecuteReader();
+                cmd.ExecuteReader();
+
+                if(reader.HasRows)
                 {
-                    while (reader.Read())
-                    {
-                        string[] tokens = reader["DetaliiEveniment"].ToString().Split('"');
-                        //     marca.Add(tokens[13]);
-                        string tip = Regex.Match(tokens[8], @"\d+").Value;
-                       // c = new Masina(new PlainText(tokens[5]), (TipMasina)Enum.Parse(typeof(TipMasina), tip), new PlainText(tokens[13]), new PlainText(tokens[67]), new PlainText(tokens[19]), new PlainText(tokens[61]), new PlainText(tokens[25]), new PlainText(tokens[37]), new PlainText(tokens[51]), new PlainText(tokens[45]), new PlainText(tokens[43]), new PlainText(tokens[31]));
-                        string stare = Regex.Match(tokens[70], @"\d+").Value;
-                       
-                       // c.stare = (StareMasina)Enum.Parse(typeof(StareMasina), stare);
-
-                    }
+                    reader.Dispose();
+                    cmd.Dispose();
+                    return true;
                 }
-
+                else
+                {
+                    reader.Dispose();
+                    cmd.Dispose();
+                    return false;
+                }
+              
             }
-            return c;
+            /* using (SqlDataReader reader = cmd.ExecuteReader())
+             {
+                 while (reader.Read())
+                 {
+                     string[] tokens = reader["DetaliiEveniment"].ToString().Split('"');
+                     //     marca.Add(tokens[13]);
+                     string tip = Regex.Match(tokens[8], @"\d+").Value;
+                    // c = new Masina(new PlainText(tokens[5]), (TipMasina)Enum.Parse(typeof(TipMasina), tip), new PlainText(tokens[13]), new PlainText(tokens[67]), new PlainText(tokens[19]), new PlainText(tokens[61]), new PlainText(tokens[25]), new PlainText(tokens[37]), new PlainText(tokens[51]), new PlainText(tokens[45]), new PlainText(tokens[43]), new PlainText(tokens[31]));
+                     string stare = Regex.Match(tokens[70], @"\d+").Value;
+
+                    // c.stare = (StareMasina)Enum.Parse(typeof(StareMasina), stare);
+
+                 }
+             }*/
 
         }
+            
+        
 
 
 
@@ -135,14 +152,14 @@ namespace AtelierAuto.Repository
                         // split pe detalii: campurile din detaliii sa  fie string - split cu " split(' " ');
                         // din Detalii imi creez un agg root .
                         string[] tokens = reader["DetaliiEveniment"].ToString().Split('"');
-                        string stareComanda = Regex.Match(tokens[26], @"\d+").Value;
-                        string idMecanic = Regex.Match(tokens[10], @"\d+").Value;
-                        string idClient = Regex.Match(tokens[20], @"\d+").Value;
-                        string idComanda = Regex.Match(tokens[24], @"\d+").Value;
-                        string anFabricatie = Regex.Match(tokens[36], @"\d+").Value;
-                        int a = Convert.ToInt32(idMecanic);
-                        Comanda c = new Comanda(new Mecanic(new PlainText(tokens[7]), int.Parse(idMecanic)), new Client(new PlainText(tokens[17]), int.Parse(idClient)), new IDComanada(int.Parse(idComanda)),
-                            new Masina(new PlainText(tokens[33]),int.Parse(anFabricatie), new CIV(tokens[41]), new SerieSasiu(tokens[47])), tokens[53]);
+                        string stareComanda = Regex.Match(tokens[22], @"\d+").Value;
+                        string idMecanic = Regex.Match(tokens[8], @"\d+").Value;
+                        string idClient = Regex.Match(tokens[16], @"\d+").Value;
+                        string idComanda = Regex.Match(tokens[20], @"\d+").Value;
+                        string anFabricatie = Regex.Match(tokens[30], @"\d+").Value;
+                       // int a = Convert.ToInt32(idMecanic);
+                        Comanda c = new Comanda(new Mecanic(tokens[5], int.Parse(idMecanic)), new Client(tokens[13], int.Parse(idClient)), new IDComanada(int.Parse(idComanda)),
+                            new Masina(tokens[27],int.Parse(anFabricatie), new CIV(tokens[35]), new SerieSasiu(tokens[41])), tokens[47]);
 
                         //Produs p = new Produs(new PlainText(tokens[5]), new PlainText(tokens[11]), new PlainText(tokens[17]), (TipProdus)Enum.Parse(typeof(TipProdus), tip), new PlainText(tokens[25]), new PlainText(tokens[31]), new PlainText(tokens[37]), new PlainText(tokens[43]), new PlainText(tokens[49]), (StareProdus)Enum.Parse(typeof(StareProdus), stare));
                         //  Eveniment e = new Eveniment(new IDComanada(Convert.ToInt32(reader["Id"])), TipEveniment.PlasareComnada, reader["DetaliiEveniment"]); //(TipEveniment)Enum.Parse(typeof(TipEveniment), reader["TipEveniment"].ToString())

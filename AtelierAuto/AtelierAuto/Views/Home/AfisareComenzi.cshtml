@@ -4,9 +4,7 @@
 }
 
 <h2>AfisareMasini</h2>
-<p>
-    @Html.ActionLink("Adauga Comanda", "PlasareComanda2")
-</p>
+
 <table class="table">
    <tr>
     <th>
@@ -57,16 +55,16 @@
             @Html.DisplayFor(modelItem => item.mecanic.idMecanic)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.mecanic.nume.Text)
+            @Html.DisplayFor(modelItem => item.mecanic.nume)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.client.idClient)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.client.nume.Text)
+            @Html.DisplayFor(modelItem => item.client.nume)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.masina.Model.Text)
+            @Html.DisplayFor(modelItem => item.masina.Model)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.masina.anFabricatie)

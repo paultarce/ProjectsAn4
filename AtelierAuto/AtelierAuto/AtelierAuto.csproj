@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\ConfiguratieDDD.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Commands\Command.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Commands\CommandPlasareComanda.cs" />
     <Compile Include="Commands\MagistralaCommandsEx.cs" />
     <Compile Include="Commands\MagistralaCommands.cs" />
+    <Compile Include="Commands\ProcesatorCautaComanda.cs" />
     <Compile Include="Commands\ProcesatorCommand.cs" />
     <Compile Include="Commands\ProcesatorAcceptareComanda.cs" />
     <Compile Include="Commands\ProcesatorCommandGeneric.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="Models\Generic\SerieSasiu.cs" />
     <Compile Include="Models\Masina.cs" />
     <Compile Include="Models\Mecanic.cs" />
+    <Compile Include="Models\MasinaMvc.cs" />
     <Compile Include="Models\StareComanda.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

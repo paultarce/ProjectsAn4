@@ -15,6 +15,11 @@ namespace AtelierAuto.Controllers
 
         List<Comanda> comandaRepo = new List<Comanda>();
         List<ComandaMvc> comandaMcv = new List<ComandaMvc>();
+
+        public HomeController()
+        {
+                    
+        }
         public ActionResult Index()
         {
             return View("Login");
@@ -86,30 +91,30 @@ namespace AtelierAuto.Controllers
         */
 
         [HttpPost]
-        public ActionResult CautaComanda()
+        public ActionResult CautaComanda(ComandaMvc mvc) // dupa model masina
         {
+            ComandaMvc mvc2 = null;
             var repo = new ReadRepository();
-            comandaRepo = ReadRepository.IncarcaDinListaDeComenzi();
-            var eventRepo = ReadRepository.IncarcaDinListaDeEvenimente();
+            //comandaRepo = ReadRepository.IncarcaDinListaDeComenzi();
+            comandaRepo = ReadRepository.IncarcaDinListaDeEvenimente();
             List<ComandaMvc> comanda = new List<ComandaMvc>();
             foreach (Comanda c in comandaRepo)
             {
-               // string idCom = c.iDComanda.ToString();
-                /*  var mVC = new ComandaMvc(
-                                          x.CIV.ToString(), x.Tip, x.Marca.ToString(), x.Model.ToString(), x.An.ToString(), x.Pret.ToString(), x.Kilometraj.ToString(),
-                                          x.Descriere.ToString(), x.Motorizare.ToString(), x.Culoare.ToString(), x.Putere.ToString(),
-                                          x.CapacitateCilindrica.ToString()
-                                          ); */
-                var mvc = new ComandaMvc(c.mecanic.nume, c.mecanic.idMecanic, c.client.nume, c.client.idClient,
-                    c.iDComanda, c.masina.Model, c.masina.anFabricatie, c.masina.civ, c.masina.serieSasiu,
-                    c.cerereClient);
-                                            
 
-                comanda.Add(mvc);
+                //if (c.iDComanda.Id == mvc.iDComanda.Id)
+                if(c.masina.Model.Equals(mvc.masina.Model))
+                {
+                    /*mvc2 = new ComandaMvc(c.mecanic.nume, c.mecanic.idMecanic, c.client.nume, c.client.idClient,
+                       c.iDComanda, c.masina.Model, c.masina.anFabricatie, c.masina.civ, c.masina.serieSasiu,
+                       c.cerereClient);
+                       */
+                    mvc2 = new ComandaMvc { mecanic = c.mecanic, client = c.client, iDComanda = c.iDComanda, masina = c.masina, cerereClient = c.cerereClient };
+                       comanda.Add(mvc2);
+                }
             }
 
             ViewBag.Model = comanda;
-            return View(comanda);
+            return View("AfisareComenzi",comanda);
         }
 
         public ActionResult CautaComanda2()
@@ -128,6 +133,9 @@ namespace AtelierAuto.Controllers
             //MagistralaEvenimente.Instanta.Value.InregistreazaProcesatoareStandard();
             //MagistralaEvenimente.Instanta.Value.InchideInregistrarea();
             //Berilna
+            mvc.iDComanda = new Models.Generic.IDComanada(8);
+            mvc.masina.civ = new Models.Generic.CIV("CCCCCBBBBB");
+            mvc.masina.serieSasiu = new Models.Generic.SerieSasiu("ABCDEFGH");
             var commandPlasareComanda = new CommandPlasareComanda();
             /* Masina m = new Masina(new PlainText(mVC.CIV), mVC.Tip, new PlainText(mVC.Marca.ToString()), new PlainText(mVC.Model.ToString()),
                  new PlainText(mVC.An), new PlainText(mVC.Pret.ToString()), new PlainText(mVC.Kilometraj), new PlainText(mVC.Motorizare),
@@ -140,7 +148,7 @@ namespace AtelierAuto.Controllers
             commandPlasareComanda.Comanda = c;
 
             MagistralaCommands.Instance.Value.Trimite(commandPlasareComanda); // in comanda asta am o masina
-            return View("AfisareComenzi");
+            return View("HomePage");
 
         }
 
@@ -153,11 +161,7 @@ namespace AtelierAuto.Controllers
             //  foreach (Comanda c in comandaRepo)
             //{
             // string idCom = c.iDComanda.ToString();
-            /*  var mVC = new ComandaMvc(
-                                      x.CIV.ToString(), x.Tip, x.Marca.ToString(), x.Model.ToString(), x.An.ToString(), x.Pret.ToString(), x.Kilometraj.ToString(),
-                                      x.Descriere.ToString(), x.Motorizare.ToString(), x.Culoare.ToString(), x.Putere.ToString(),
-                                      x.CapacitateCilindrica.ToString()
-                                      ); */
+           
             /* var mvc = new ComandaMvc(c.mecanic.nume, c.mecanic.idMecanic, c.client.nume, c.client.idClient,
                  c.iDComanda, c.masina.Model, c.masina.anFabricatie, c.masina.civ, c.masina.serieSasiu,
                  c.cerereClient); 
@@ -174,5 +178,7 @@ namespace AtelierAuto.Controllers
             ViewBag.Model = comandaMcv;
             return View(comandaMcv);
         }
+
+       // public ActionResult
     }
 }

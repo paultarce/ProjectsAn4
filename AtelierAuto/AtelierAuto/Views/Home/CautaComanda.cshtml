@@ -1,7 +1,7 @@
 ﻿@model AtelierAuto.Models.ComandaMvc
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "CautaComanda";
 }
 <h2>CautareComanda</h2>
 @using (Html.BeginForm("CautaComanda", "Home", FormMethod.Post, new { @class = "linkStyle", mvc = @Model }))
@@ -9,10 +9,10 @@
     <div>
         <fieldset>
             <div class="editor-label">
-                @Html.LabelFor(c => c.iDComanda)
+                @Html.LabelFor(c => c.masina.Model)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(c => c.iDComanda)
+                @Html.TextBoxFor(c => c.masina.Model)
             </div>
           
             <input type="submit" value="CautareComanda" />

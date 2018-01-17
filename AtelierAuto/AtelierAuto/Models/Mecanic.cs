@@ -7,10 +7,15 @@ namespace AtelierAuto.Models
 {
     public class Mecanic
     {       
-        public PlainText nume { get;  set; }
+        public string nume { get;  set; }
         public int idMecanic { get;  set; }
 
-        public Mecanic(PlainText nume, int idMecanic)
+        public Mecanic()
+        {
+
+        }
+
+        public Mecanic(string nume, int idMecanic)
         {
             this.nume = nume;
             this.idMecanic = idMecanic;

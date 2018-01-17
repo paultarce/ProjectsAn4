@@ -9,10 +9,14 @@ namespace AtelierAuto.Models
     public class Client
     {
        
-        public PlainText nume { get;  set; }
+        public string nume { get;  set; }
         public int idClient { get;  set; }
 
-        public Client(PlainText nume, int idClient)
+        public Client()
+        {
+
+        }
+        public Client(string nume, int idClient)
         {
             this.nume = nume;
             this.idClient = idClient;
